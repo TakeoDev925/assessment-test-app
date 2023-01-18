@@ -5,7 +5,7 @@ import InputField from "../inputField";
 import Button from "../button";
 import { READ_LOCATION } from "../../graphQL/Queries";
 import { UPDATE_LOCATION, REMOVE_LOCATION } from "../../graphQL/Mutations";
-import { useQuery, gql, useMutation } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { TENANT } from "../../util";
 
 function EditLocationModal(props) {
@@ -47,9 +47,9 @@ function EditLocationModal(props) {
     updatedAt: '',
   });
 
-  const [addTodo, {  }] = useMutation(UPDATE_LOCATION);
+  const [addTodo] = useMutation(UPDATE_LOCATION);
 
-  const [removeTodo, {  }] = useMutation(REMOVE_LOCATION);
+  const [removeTodo] = useMutation(REMOVE_LOCATION);
 
   const { loading, data } = useQuery(READ_LOCATION, {
     variables: {

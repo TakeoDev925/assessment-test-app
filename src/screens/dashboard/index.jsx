@@ -3,7 +3,7 @@ import { GoSearch } from "react-icons/go";
 import { TbRefresh } from "react-icons/tb";
 import TablePagination from "@mui/material/TablePagination";
 import LocationTableRow from "../../components/locationTableRow";
-import { useQuery, gql, useLazyQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 import { LOAD_LOCATION } from "../../graphQL/Queries";
 import AddLocationModal from "../../components/addLocationModal";
 import EditLocationModal from "../../components/editLocationModal";
@@ -12,7 +12,7 @@ import { TENANT } from "../../util";
 function Dashboard() {
   const [filterIndex, setFilterIndex] = useState(1);
 
-  const [refreshLocationList, { data, loading, error }] = useLazyQuery(LOAD_LOCATION, {
+  const [refreshLocationList, { data, loading }] = useLazyQuery(LOAD_LOCATION, {
     variables: {
       tenant: TENANT,
     },

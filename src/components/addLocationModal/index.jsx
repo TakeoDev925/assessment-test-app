@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
 import { GrClose } from "react-icons/gr";
 import InputField from "../inputField";
 import { FaChevronDown } from "react-icons/fa";
 import Button from "../button";
 import { CREATE_LOCATION } from "../../graphQL/Mutations";
-import { useQuery, gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { TENANT } from "../../util";
 
 function AddLocationModal(props) {
@@ -47,7 +47,7 @@ function AddLocationModal(props) {
   });
 
 
-  const [addTodo, { data, loading }] = useMutation(CREATE_LOCATION);
+  const [addTodo] = useMutation(CREATE_LOCATION);
 
   const onInputChange = (e) => {
     const { name, value } = e.target;
